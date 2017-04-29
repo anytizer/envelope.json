@@ -146,14 +146,4 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
-	
-	// string
-	// int
-	// float
-	// double
-	// long
-	// null
-	// boolean
-	// array
-	// class
 }
