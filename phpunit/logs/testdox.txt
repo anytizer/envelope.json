@@ -1,10 +1,10 @@
-ApiPing
+JsonEnvelope
  [x] Bool false found
  [x] Bool true found
- [x] Test array found
- [x] Test complex array found
+ [x] Array found
+ [x] Complex array found
  [x] Bool true not found
  [x] Bool false not found
- [x] Test array not found
- [x] Test complex array not found
+ [x] Array not found
+ [x] Complex array not found
 

@@ -2,7 +2,7 @@
 /**
  * @see https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertJsonStringEqualsJsonString
  */
-class ApiPingTest extends PHPUnit\Framework\TestCase
+class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 {
 	public function setup()
 	{
@@ -40,7 +40,7 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
 
-	public function testTestArrayFound()
+	public function testArrayFound()
 	{
 		$expect = array(
 			"status" => true,
@@ -58,7 +58,7 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
 
-	public function testTestComplexArrayFound()
+	public function testComplexArrayFound()
 	{
 		$expect = array(
 			"status" => true,
@@ -113,7 +113,7 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
 
-	public function testTestArrayNotFound()
+	public function testArrayNotFound()
 	{
 		$expect = array(
 			"status" => false,
@@ -131,7 +131,7 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
 
-	public function testTestComplexArrayNotFound()
+	public function testComplexArrayNotFound()
 	{
 		$expect = array(
 			"status" => false,
