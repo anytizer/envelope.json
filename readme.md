@@ -10,9 +10,20 @@ Fields available
 
 ## Usage
 
+Indicate something went wrong.
+
 ```
     $data = $mixed_output; // Your data
 
     $envelope = new envelope();
     $envelope->not_found($data);
+```
+
+Or, indicate something was successful.
+
+```
+    $data = $mixed_output; // Your data
+
+    $envelope = new envelope();
+    $envelope->found($data);
 ```
