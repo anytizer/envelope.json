@@ -64,7 +64,11 @@ class envelope
 	{
 		if($this->auto_output === true)
 		{
-			header("Content-Type: text/json");
+			if(!headers_sent())
+			{
+				header("Content-Type: text/json");
+			}
+
 			echo $this->output();
 			
 			flush();
