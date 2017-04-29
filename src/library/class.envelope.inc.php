@@ -18,25 +18,32 @@ class envelope
     public $data;
 	
 	/**
-	 * @var boolean Automatically output
+	 * @var boolean Automatically echo/flush output
 	 */
-	private $auto;
+	private $auto_output;
 	
-	public function __construct(bool $auto=true)
+	public function __construct(bool $auto_output=true)
 	{
 		/**
-		 * For live implementation, set to "true" auto mode.
-		 * For testing, set to "false" auto mode.
+		 * For live implementation, set to "true" auto_output mode.
+		 * For testing, set to "false" auto_output mode.
 		 */
-		$this->auto = $auto;
+		$this->auto_output = $auto_output;
 	}
 	
+	/**
+	 * Everything completed normally
+	 */
 	public function found($data)
 	{
 		$this->status = true;
 		$this->data = $data;
 	}
 	
+	/**
+	 * Oh, there was an error at server side
+	 * Client should handle this case
+	 */
 	public function not_found($data)
 	{
 		$this->status = false;
@@ -53,10 +60,12 @@ class envelope
 	
 	public function __destruct()
 	{
-		if($this->auto)
+		if($this->auto_output === true)
 		{
-			header("Content-Type: text/plain");
+			header("Content-Type: text/json");
 			echo $this->json();
+			
+			flush();
 		}
 	}
 }
