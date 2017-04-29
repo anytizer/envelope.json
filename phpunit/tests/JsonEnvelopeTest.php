@@ -1,8 +1,12 @@
 <?php
+namespace tests;
+use common\envelope;
+use PHPUnit\Framework\TestCase;
+
 /**
  * @see https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertJsonStringEqualsJsonString
  */
-class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
+class JsonEnvelopeTest extends TestCase
 {
 	public function setup()
 	{
@@ -19,7 +23,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -35,7 +39,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -53,7 +57,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -76,7 +80,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -92,7 +96,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->not_found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -108,7 +112,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->not_found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -126,7 +130,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->not_found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -149,7 +153,7 @@ class JsonEnvelopeTest extends PHPUnit\Framework\TestCase
 
 		$data = $expect["data"];
 		$envelope->not_found($data);
-		$json = $envelope->json();
+		$json = $envelope->output();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
