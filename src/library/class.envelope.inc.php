@@ -17,6 +17,20 @@ class envelope
      */
     public $data;
 	
+	/**
+	 * @var boolean Automatically output
+	 */
+	private $auto;
+	
+	public function __construct(bool $auto=true)
+	{
+		/**
+		 * For live implementation, set to "true" auto mode.
+		 * For testing, set to "false" auto mode.
+		 */
+		$this->auto = $auto;
+	}
+	
 	public function found($data)
 	{
 		$this->status = true;
@@ -34,12 +48,15 @@ class envelope
 	 */
 	public function json()
 	{
-		header("Content-Type: text/plain");
-		echo json_encode($this);
+		return json_encode($this);
 	}
 	
 	public function __destruct()
 	{
-		$this->json();
+		if($this->auto)
+		{
+			header("Content-Type: text/plain");
+			echo $this->json();
+		}
 	}
 }
