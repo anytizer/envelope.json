@@ -1,4 +1,6 @@
 <?php
+namespace common;
+
 /**
  * Client should know and expect the envelope data properly
  * No echo, print, print_r, header elsewhere through out the application
@@ -53,7 +55,7 @@ class envelope
 	/**
 	 * @todo Make it private after the the tests are ok
 	 */
-	public function json()
+	public function output()
 	{
 		return json_encode($this);
 	}
@@ -63,7 +65,7 @@ class envelope
 		if($this->auto_output === true)
 		{
 			header("Content-Type: text/json");
-			echo $this->json();
+			echo $this->output();
 			
 			flush();
 		}

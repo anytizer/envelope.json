@@ -11,7 +11,7 @@ Fields available
 ## Usage
 
 ```
-    $data = $expect["data"];
+    $data = $mixed_output; // Your data
 
     $envelope = new envelope();
     $envelope->not_found($data);
