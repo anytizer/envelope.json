@@ -1,38 +1,41 @@
 <?php
 /**
- * Define your own Test Cases
+ * @see https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertJsonStringEqualsJsonString
  */
 class ApiPingTest extends PHPUnit\Framework\TestCase
 {
 	public function setup()
 	{
-		$this->envelope = new envelope(false);
 	}
-	
+
 	public function testBoolFalseFound()
 	{
 		$expect = array(
 			"status" => true,
 			"data" => false
-		);		
+		);
 		
+		$envelope = new envelope(false);
+
 		$data = $expect["data"];
-		$this->envelope->found($data);
-		$json = $this->envelope->json();
+		$envelope->found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
-	
+
 	public function testBoolTrueFound()
 	{
 		$expect = array(
 			"status" => true,
 			"data" => true
-		);		
+		);
 		
+		$envelope = new envelope(false);
+
 		$data = $expect["data"];
-		$this->envelope->found($data);
-		$json = $this->envelope->json();
+		$envelope->found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -45,16 +48,16 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 				"id" => "25"
 			),
 		);
-		
+
 		$envelope = new envelope(false);
-		
+
 		$data = $expect["data"];
-		$this->envelope->found($data);
-		$json = $this->envelope->json();
+		$envelope->found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
-	
+
 	public function testTestComplexArrayFound()
 	{
 		$expect = array(
@@ -68,40 +71,44 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 				"others" => "no",
 			),
 		);
-		
+
 		$envelope = new envelope(false);
-		
+
 		$data = $expect["data"];
-		$this->envelope->found($data);
-		$json = $this->envelope->json();
+		$envelope->found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
-	
+
 	public function testBoolTrueNotFound()
 	{
 		$expect = array(
 			"status" => false,
 			"data" => true
-		);		
-		
+		);
+
+		$envelope = new envelope(false);
+
 		$data = $expect["data"];
-		$this->envelope->not_found($data);
-		$json = $this->envelope->json();
+		$envelope->not_found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
-	
+
 	public function testBoolFalseNotFound()
 	{
 		$expect = array(
 			"status" => false,
 			"data" => false
-		);		
-		
+		);
+
+		$envelope = new envelope(false);
+
 		$data = $expect["data"];
-		$this->envelope->not_found($data);
-		$json = $this->envelope->json();
+		$envelope->not_found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
@@ -114,16 +121,16 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 				"id" => "25"
 			),
 		);
-		
+
 		$envelope = new envelope(false);
-		
+
 		$data = $expect["data"];
-		$this->envelope->not_found($data);
-		$json = $this->envelope->json();
+		$envelope->not_found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
-	
+
 	public function testTestComplexArrayNotFound()
 	{
 		$expect = array(
@@ -137,12 +144,12 @@ class ApiPingTest extends PHPUnit\Framework\TestCase
 				"others" => "no",
 			),
 		);
-		
+
 		$envelope = new envelope(false);
-		
+
 		$data = $expect["data"];
-		$this->envelope->not_found($data);
-		$json = $this->envelope->json();
+		$envelope->not_found($data);
+		$json = $envelope->json();
 
 		$this->assertJsonStringEqualsJsonString(json_encode($expect), $json);
 	}
