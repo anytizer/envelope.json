@@ -70,7 +70,6 @@ class envelope
 			}
 
 			echo $this->output();
-			
 			flush();
 		}
 	}

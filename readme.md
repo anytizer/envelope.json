@@ -1,6 +1,6 @@
 # envelope.json
 
-Envelope for JSON body - Uses __desctruct() call to push the data as JSON in an envelope.
+Envelope for JSON body - Uses `__desctruct()` call to push the data as JSON in an envelope.
 
 Fields available
 

@@ -1,8 +1,10 @@
-tests\JsonEnvelope
+tests\JsonEnvelopeFound
  [x] Bool false found
  [x] Bool true found
  [x] Array found
  [x] Complex array found
+
+tests\JsonEnvelopeNotFound
  [x] Bool true not found
  [x] Bool false not found
  [x] Array not found
